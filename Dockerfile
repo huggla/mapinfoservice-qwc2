@@ -3,7 +3,7 @@ ARG CONTENTIMAGE1="huggla/pyinstaller-alpine:$TAG"
 ARG CONTENTDESTINATION1="/"
 ARG BUILDDEPS="dash"
 ARG BUILDCMDS=\
-"   head -39 /buildfs/src/mapinfo.py.org > /src/mapinfo.py "\
+"   head -33 /buildfs/src/mapinfo.py.org > /src/mapinfo.py "\
 "&& tail -26 /buildfs/src/mapinfo.py.add >> /src/mapinfo.py "\
 "&& sed -i 's/# Copyright 2018, Sourcepole AG/# Copyright 2018, Sourcepole AG, Henrik Uggla/' /src/mapinfo.py "\
 "&& cp /buildfs/src/requirements.txt /src/ "\
