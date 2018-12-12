@@ -24,7 +24,7 @@ COPY --from=build /imagefs /
 #-----------------------------------------
 
 ENV VAR_LINUX_USER="mapinfo" \
-    VAR_GUNICORN_PARAMS="bind=0.0.0.0:8093" \
+    VAR_GUNICORN_PARAMS="bind=0.0.0.0:5003" \
     VAR_FINAL_COMMAND="mapinfo \$VAR_GUNICORN_PARAMS"
 
 #---------------Don't edit----------------
