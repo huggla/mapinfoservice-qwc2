@@ -1,2 +1,2 @@
 # mapinfoservice-qwc2
-Mapinfo service for QWC2.
+Map info service for QWC2.
