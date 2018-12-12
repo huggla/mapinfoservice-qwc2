@@ -3,15 +3,15 @@ ARG CONTENTIMAGE1="huggla/pyinstaller-alpine:$TAG"
 ARG CONTENTDESTINATION1="/"
 ARG BUILDDEPS="dash"
 ARG BUILDCMDS=\
-"   head -33 /buildfs/src/mapinfo.py.org > /src/mapinfo.py "\
-"&& tail -26 /buildfs/src/mapinfo.py.add >> /src/mapinfo.py "\
-"&& sed -i 's/# Copyright 2018, Sourcepole AG/# Copyright 2018, Sourcepole AG, Henrik Uggla/' /src/mapinfo.py "\
+"   head -33 /buildfs/src/mapInfo.py.org > /src/mapInfo.py "\
+"&& tail -26 /buildfs/src/mapInfo.py.add >> /src/mapInfo.py "\
+"&& sed -i 's/# Copyright 2018, Sourcepole AG/# Copyright 2018, Sourcepole AG, Henrik Uggla/' /src/mapInfo.py "\
 "&& cp /buildfs/src/requirements.txt /src/ "\
 "&& cp -a /usr/bin/dash /usr/local/bin/ "\
 "&& sed -i 's|shell=True,|shell=True, executable=\"/usr/local/bin/dash\",|g' /usr/local/lib/python2.7/ctypes/util.py "\
 "&& cd /src "\
-"&& /pyinstaller/pyinstaller.sh --onefile --noconfirm --clean --exclude-module Werkzeug --distpath /imagefs/usr/local/bin mapinfo.py"
-ARG EXECUTABLES="/usr/local/bin/mapinfo"
+"&& /pyinstaller/pyinstaller.sh --onefile --noconfirm --clean --exclude-module Werkzeug --distpath /imagefs/usr/local/bin mapInfo.py"
+ARG EXECUTABLES="/usr/local/bin/mapInfo"
 ARG REMOVEFILES="/sbin /usr/include /usr/share /usr/sbin" 
 
 #---------------Don't edit----------------
@@ -25,7 +25,7 @@ COPY --from=build /imagefs /
 
 ENV VAR_LINUX_USER="mapinfo" \
     VAR_GUNICORN_PARAMS="bind=0.0.0.0:5003" \
-    VAR_FINAL_COMMAND="mapinfo \$VAR_GUNICORN_PARAMS"
+    VAR_FINAL_COMMAND="mapInfo \$VAR_GUNICORN_PARAMS"
 
 #---------------Don't edit----------------
 USER starter
